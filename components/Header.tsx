@@ -8,6 +8,8 @@ const navItems = [
     label: 'Mortgage & Loans',
     href: '#',
     children: [
+      { label: 'How Much House Can I Afford', href: '/calculators/house-affordability' },
+      { label: 'Rent vs Buy Calculator', href: '/calculators/rent-vs-buy' },
       { label: 'Mortgage Calculator', href: '/calculators/mortgage' },
       { label: 'Loan Calculator', href: '/calculators/loan' },
       { label: 'Auto Loan Calculator', href: '/calculators/auto-loan' },
@@ -20,6 +22,7 @@ const navItems = [
     label: 'Investment & Savings',
     href: '#',
     children: [
+      { label: 'When Can I Retire (FIRE)', href: '/calculators/retirement' },
       { label: 'Compound Interest Calculator', href: '/calculators/compound-interest' },
       { label: 'Investment Calculator', href: '/calculators/investment' },
       { label: 'Savings Calculator', href: '/calculators/savings' },

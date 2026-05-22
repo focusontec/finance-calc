@@ -5,6 +5,8 @@ const calculatorCategories = [
     title: 'Mortgage & Loans',
     icon: '🏠',
     calculators: [
+      { name: 'How Much House Can I Afford', href: '/calculators/house-affordability', description: 'Calculate the maximum home price you can afford based on your income and debts.' },
+      { name: 'Rent vs Buy Calculator', href: '/calculators/rent-vs-buy', description: 'Compare the total cost of renting vs buying a home over time.' },
       { name: 'Mortgage Calculator', href: '/calculators/mortgage', description: 'Calculate monthly mortgage payments, total interest, and amortization schedules.' },
       { name: 'Loan Calculator', href: '/calculators/loan', description: 'Estimate payments for any loan type with customizable terms and rates.' },
       { name: 'Auto Loan Calculator', href: '/calculators/auto-loan', description: 'Calculate car payments including trade-in value and down payment.' },
@@ -17,6 +19,7 @@ const calculatorCategories = [
     title: 'Investment & Savings',
     icon: '📈',
     calculators: [
+      { name: 'When Can I Retire (FIRE)', href: '/calculators/retirement', description: 'Calculate when you can achieve financial independence and retire early.' },
       { name: 'Compound Interest Calculator', href: '/calculators/compound-interest', description: 'See how your money grows with compound interest over time.' },
       { name: 'Investment Calculator', href: '/calculators/investment', description: 'Project investment growth with regular contributions.' },
       { name: 'Savings Calculator', href: '/calculators/savings', description: 'Plan your savings goals with monthly contributions.' },
@@ -61,14 +64,17 @@ export default function Home() {
             Make informed financial decisions with our free tools.
           </p>
           <div className="flex flex-wrap gap-3">
+            <Link href="/calculators/house-affordability" className="btn-secondary">
+              How Much House Can I Afford
+            </Link>
+            <Link href="/calculators/rent-vs-buy" className="btn-secondary">
+              Rent vs Buy
+            </Link>
+            <Link href="/calculators/retirement" className="btn-secondary">
+              When Can I Retire
+            </Link>
             <Link href="/calculators/mortgage" className="btn-secondary">
               Mortgage Calculator
-            </Link>
-            <Link href="/calculators/compound-interest" className="btn-secondary">
-              Compound Interest
-            </Link>
-            <Link href="/calculators/loan" className="btn-secondary">
-              Loan Calculator
             </Link>
           </div>
         </div>

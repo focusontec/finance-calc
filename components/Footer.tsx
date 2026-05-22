@@ -14,6 +14,8 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-medium mb-4">Mortgage & Loans</h4>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/calculators/house-affordability" className="hover:text-white transition-colors">House Affordability</Link></li>
+              <li><Link href="/calculators/rent-vs-buy" className="hover:text-white transition-colors">Rent vs Buy</Link></li>
               <li><Link href="/calculators/mortgage" className="hover:text-white transition-colors">Mortgage Calculator</Link></li>
               <li><Link href="/calculators/loan" className="hover:text-white transition-colors">Loan Calculator</Link></li>
               <li><Link href="/calculators/auto-loan" className="hover:text-white transition-colors">Auto Loan Calculator</Link></li>
@@ -23,6 +25,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-medium mb-4">Investment & Savings</h4>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/calculators/retirement" className="hover:text-white transition-colors">Retirement (FIRE)</Link></li>
               <li><Link href="/calculators/compound-interest" className="hover:text-white transition-colors">Compound Interest</Link></li>
               <li><Link href="/calculators/investment" className="hover:text-white transition-colors">Investment Calculator</Link></li>
               <li><Link href="/calculators/savings" className="hover:text-white transition-colors">Savings Calculator</Link></li>
