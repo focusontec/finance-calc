@@ -1,0 +1,46 @@
+# FinanceCalc - Free Online Financial Calculators
+
+> Free, easy-to-use financial calculators for mortgages, loans, investments, retirement, salary, and more. No registration required.
+
+## Mortgage & Loans
+
+- [House Affordability Calculator](https://financecalculatoronline.pro/calculators/house-affordability): Calculate the maximum home price based on income and debts
+- [Rent vs Buy Calculator](https://financecalculatoronline.pro/calculators/rent-vs-buy): Compare total cost of renting vs buying over time
+- [Mortgage Calculator](https://financecalculatoronline.pro/calculators/mortgage): Monthly payments, total interest, and amortization schedules
+- [Loan Calculator](https://financecalculatoronline.pro/calculators/loan): Estimate payments for any loan type with customizable terms
+- [Auto Loan Calculator](https://financecalculatoronline.pro/calculators/auto-loan): Car payments including trade-in and down payment
+- [Amortization Calculator](https://financecalculatoronline.pro/calculators/amortization): Detailed amortization schedules with payment breakdowns
+- [Mortgage Payoff Calculator](https://financecalculatoronline.pro/calculators/mortgage-payoff): How extra payments shorten mortgage term
+- [Refinance Calculator](https://financecalculatoronline.pro/calculators/refinance): Determine if refinancing saves money
+
+## Investment & Savings
+
+- [Retirement Calculator (FIRE)](https://financecalculatoronline.pro/calculators/retirement): When you can achieve financial independence
+- [Compound Interest Calculator](https://financecalculatoronline.pro/calculators/compound-interest): How money grows with compound interest
+- [Investment Calculator](https://financecalculatoronline.pro/calculators/investment): Project investment growth with contributions
+- [Savings Calculator](https://financecalculatoronline.pro/calculators/savings): Plan savings goals with monthly contributions
+- [ROI Calculator](https://financecalculatoronline.pro/calculators/roi): Return on investment for any venture
+- [CD Calculator](https://financecalculatoronline.pro/calculators/cd): Certificate of deposit earnings and yields
+- [Inflation Calculator](https://financecalculatoronline.pro/calculators/inflation): Impact of inflation on purchasing power
+
+## Salary & Income
+
+- [Salary Calculator](https://financecalculatoronline.pro/calculators/salary): Convert between hourly, weekly, monthly, and annual pay
+- [Hourly to Salary](https://financecalculatoronline.pro/calculators/hourly-to-salary): Convert hourly wages to annual salary
+- [Pay Raise Calculator](https://financecalculatoronline.pro/calculators/pay-raise): Impact of a salary increase
+- [Overtime Calculator](https://financecalculatoronline.pro/calculators/overtime): Overtime pay at 1.5x and 2x rates
+
+## Other Tools
+
+- [Currency Converter](https://financecalculatoronline.pro/calculators/currency-converter): Convert between major world currencies
+- [Credit Card Payoff](https://financecalculatoronline.pro/calculators/credit-card-payoff): Credit card debt payoff strategy
+- [Debt Payoff Calculator](https://financecalculatoronline.pro/calculators/debt-payoff): Debt payoff plan (snowball or avalanche method)
+- [Net Worth Calculator](https://financecalculatoronline.pro/calculators/net-worth): Calculate total net worth from assets and liabilities
+
+## Key Facts
+
+- All calculators are free with no registration required
+- Uses standard financial formulas reviewed for accuracy
+- Results include detailed breakdowns and explanations
+- Mobile-friendly responsive design
+- Built with Next.js and deployed on Vercel

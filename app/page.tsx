@@ -50,9 +50,63 @@ const calculatorCategories = [
   },
 ]
 
+const faqs = [
+  {
+    question: 'Are these financial calculators really free?',
+    answer: 'Yes, all calculators on FinanceCalc are completely free to use with no registration required. Simply enter your values and get instant results.',
+  },
+  {
+    question: 'How accurate are the calculator results?',
+    answer: 'Our calculators use standard financial formulas that are regularly reviewed for accuracy. Results are for informational purposes and should not be considered financial advice.',
+  },
+  {
+    question: 'Can I use these calculators on my phone?',
+    answer: 'Yes, all our calculators are fully responsive and work on desktop, tablet, and mobile devices.',
+  },
+  {
+    question: 'What financial calculators are available?',
+    answer: 'We offer 23+ calculators covering mortgages, loans, investments, retirement planning, salary calculations, and more.',
+  },
+]
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'FinanceCalc',
+  url: 'https://financecalculatoronline.pro',
+  description: 'Free online financial calculators for mortgages, loans, investments, retirement, and more.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://financecalculatoronline.pro/search?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+}
+
 export default function Home() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
@@ -127,6 +181,51 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="border-t border-gray-200">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border-b border-gray-200 pb-6 last:border-0">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{faq.question}</h3>
+                <p className="text-gray-600">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Signals */}
+      <section className="bg-gray-50 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Trusted Resources</h2>
+          <p className="text-sm text-gray-600 mb-4">
+            Our calculators use formulas based on industry standards. For more information about financial planning, visit:
+          </p>
+          <ul className="text-sm text-gray-600 space-y-2">
+            <li>
+              <a href="https://www.consumerfinance.gov/" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
+                Consumer Financial Protection Bureau (CFPB)
+              </a>
+              {' '}&mdash; Official U.S. government resource for financial education
+            </li>
+            <li>
+              <a href="https://www.investor.gov/" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
+                Investor.gov
+              </a>
+              {' '}&mdash; SEC&apos;s investor education resources
+            </li>
+            <li>
+              <a href="https://www.irs.gov/newsroom/understanding-taxes" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
+                IRS Understanding Taxes
+              </a>
+              {' '}&mdash; Official tax education from the IRS
+            </li>
+          </ul>
         </div>
       </section>
     </div>
