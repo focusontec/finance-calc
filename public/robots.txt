@@ -19,4 +19,10 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://financecalculatoronline.pro/sitemap.xml
+
+# IndexNow
+Host: https://financecalculatoronline.pro
