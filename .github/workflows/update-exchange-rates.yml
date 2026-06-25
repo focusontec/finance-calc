@@ -1,0 +1,39 @@
+name: Update Exchange Rates
+
+on:
+  schedule:
+    # 每天 UTC 时间 00:00 运行（北京时间 08:00）
+    - cron: '0 0 * * *'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update-rates:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      
+      - name: Update exchange rates
+        run: python scripts/update-exchange-rates.py
+      
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet public/exchange-rates.json || echo "changed=true" >> $GITHUB_OUTPUT
+      
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/exchange-rates.json
+          git commit -m "Update exchange rates [skip ci]"
+          git push

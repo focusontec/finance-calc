@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import CalculatorLayout from '@/components/CalculatorLayout'
 import { formatNumber } from '@/lib/format'
 
@@ -38,26 +38,32 @@ const currencies = [
   { code: 'KRW', name: 'South Korean Won', symbol: '₩' },
 ]
 
-// Sample exchange rates (approximate, for demonstration)
-const exchangeRates: Record<string, number> = {
-  USD: 1,
-  EUR: 0.92,
-  GBP: 0.79,
-  JPY: 149.50,
-  CAD: 1.36,
-  AUD: 1.53,
-  CHF: 0.88,
-  CNY: 7.24,
-  INR: 83.12,
-  MXN: 17.15,
-  BRL: 4.97,
-  KRW: 1328.50,
+// Default rates (fallback if JSON fails to load)
+const defaultRates: Record<string, number> = {
+  USD: 1, EUR: 0.92, GBP: 0.79, JPY: 149.50, CAD: 1.36, AUD: 1.53,
+  CHF: 0.88, CNY: 7.24, INR: 83.12, MXN: 17.15, BRL: 4.97, KRW: 1328.50,
 }
 
 export default function CurrencyConverterPage() {
   const [amount, setAmount] = useState('1000')
   const [fromCurrency, setFromCurrency] = useState('USD')
   const [toCurrency, setToCurrency] = useState('EUR')
+  const [exchangeRates, setExchangeRates] = useState<Record<string, number>>(defaultRates)
+  const [lastUpdated, setLastUpdated] = useState('')
+
+  useEffect(() => {
+    fetch('/exchange-rates.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data.rates) {
+          setExchangeRates(data.rates)
+          setLastUpdated(data.updated || '')
+        }
+      })
+      .catch(() => {
+        // Use default rates if fetch fails
+      })
+  }, [])
 
   const value = parseFloat(amount) || 0
   const fromRate = exchangeRates[fromCurrency] || 1
@@ -82,8 +88,13 @@ export default function CurrencyConverterPage() {
           <p>
             Currency conversion uses exchange rates to determine how much one currency is worth
             in terms of another. Rates fluctuate constantly based on economic factors, political
-            events, and market sentiment. This converter uses sample rates for demonstration.
+            events, and market sentiment. This converter uses daily-updated rates.
           </p>
+          {lastUpdated && (
+            <p className="text-xs text-gray-500">
+              Last updated: {lastUpdated}
+            </p>
+          )}
           <h2>Frequently Asked Questions</h2>
           {faqs.map((faq, index) => (
             <div key={index} className="mb-4">
@@ -131,10 +142,11 @@ export default function CurrencyConverterPage() {
           <p className="text-sm text-gray-600">
             Exchange Rate: 1 {fromCurrency} = {formatNumber(rate, 4)} {toCurrency}
           </p>
-          <p className="text-xs text-gray-400 mt-2">
-            Note: Exchange rates are approximate and for demonstration purposes only.
-            For live rates, consult your bank or financial institution.
-          </p>
+          {lastUpdated && (
+            <p className="text-xs text-gray-400 mt-2">
+              Updated: {lastUpdated}
+            </p>
+          )}
         </div>
 
         {/* Quick conversion table */}
